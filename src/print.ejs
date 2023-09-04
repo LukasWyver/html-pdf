@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <title>Relatório</title>
+</head>
+<body class="bg-zinc-400 h-screen w-full flex items-center justify-center">
+  <div class="bg-zinc-100 h-fit p-8 rounded-lg border border-zinc-500 drop-shadown">
+    <h1 class="text-3xl text-blue-500 font-medium mb-5">Listagem de passageiros</h1>
+    <table class="p-8 w-full text-left space-y-2.5">
+      <thead class="text-blue-800">
+        <tr>
+          <th>Nome</th>
+          <th>Número do voo</th>
+          <th>Horário</th>
+        </tr>
+      </thead>
+      <tbody class="w-full divide-y divide-zinc-200">
+        <% if (passengers.length > 0) { %>
+          <% passengers.forEach(passenger => { %>
+            <tr>
+              <td><%= passenger.name %></td>
+              <td><%= passenger.flightNumber %></td>
+              <td><%= passenger.time %></td>
+            </tr>
+            <% }); %>
+        <% } %>
+      </tbody>
+      <tfoot class="">
+        <tr><td colspan="2"><%=passengers.length%> passageiros</td></tr>
+      </tfoot>
+    </table>
+  </div>  
+</body>
+</html>
